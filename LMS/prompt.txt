@@ -1,0 +1,14 @@
+with respect to above book_copies.csv, books_table.csv, students_updated_split.csv so try to create the transactions_table.csv with specified columns (transaction_id, student_id, issue_date, due_date,  return_date, book_id, copy_id, fine_amount, initial_status,final_status)
+1.Each transaction_id must be unique and follow a sequential pattern starting with TS_0001 (e.g., TS_0001, TS_0002, TS_0003, etc.).The dataset should be divided into sections, and each section should contribute 70-75% of the total transactions. Each student_id within a section should have at least 30 to 40 transactions assigned to them. Ensure the dataset covers transactions for an entire year.
+2.student_id should take from students_table.csv and student_id should contain duplicates also.
+3.issue_date should starts from (June 1st 2020) so sequentially generate dates upto (may 31st 2021) and allow duplicates on each date (atmost to 300 and at least 200)perday.
+4.generate due_date in such a way that the difference between issue_date and due_date should be 7 days.
+5.return_date can be on the same day issued, as well as it can be with in due date and even it can exceed due_date upto 60 days and also include (5 percent(%)) null values(leave it empty space).
+6.count the number of days between due_date and return_date and charge 10 rupees per each day as fine_amount and fine_amount should not exceed 900, if the return_date column is empty space a fine_amount is equal to the double the book_price from the books_table.csv, additionally, 5% of return_date values excluding null values should have the fine_amount by counting the number of days between due_date and return_date, charging 10 rupees per day, and add an extra amount of 100 rupees for these columns(5% of return_date values excluding null values). 
+7.copy_id should take from book_copies.csv it should be unique and when issued book is returned only it should allow duplicates.
+8.book_id should take from books_table.csv it should be unique and when issued book is returned only it should allow duplicates.
+9.initial_status consider it has "good" of all records.
+10.if the return_date is empty space, final_status will be "lost", and for these columns (if 5% of return_date values excluding null values) the final_status will be "damaged", and for other columns in final_status maintain it "good".
+11.if the final_status is damaged or lost it should not generate duplicate copy_id. 
+12.Each department has exclusive access to their own department's books, as specified in the books_table.csv schema (e.g., CSE Y1 S1 E1).
+Ensure the book_id in transactions_table1.csv matches the book_id in books_table.csv to enforce department-specific book access.
